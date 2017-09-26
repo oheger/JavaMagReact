@@ -1,0 +1,9 @@
+*.class
+*.log
+*.iml
+.idea
+.gradle/
+.cache
+.history
+.lib/
+target/
