@@ -1,0 +1,10 @@
+*.class
+*.log
+*.iml
+.idea/
+.gradle/
+.cache
+.history
+.lib/
+.vertx/
+target/
