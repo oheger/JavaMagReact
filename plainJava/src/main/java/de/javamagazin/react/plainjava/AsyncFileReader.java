@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.javamagazin.react.progmodel;
+package de.javamagazin.react.plainjava;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

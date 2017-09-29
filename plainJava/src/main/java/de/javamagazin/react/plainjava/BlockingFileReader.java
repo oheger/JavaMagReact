@@ -13,36 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.javamagazin.react.progmodel;
+package de.javamagazin.react.plainjava;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 /**
- * Main class for reading a file using {@link AsyncFileReader}. The path to be
- * read is expected to be passed as single command line argument.
+ * Example class for reading a file in the traditional blocking style. The
+ * path to be read is expected to be passed as single command line argument.
  */
-public class AsyncFileReaderMain {
-    public static void main(String[] args) throws Exception {
+public class BlockingFileReader {
+    public static void main(String[] args) throws IOException {
         if (args.length != 1) {
-            System.out.println("Usage: AsyncFileReaderMain <path>");
+            System.out.println("Usage: BlockingFileReader <path>");
             System.exit(1);
         }
 
         Path path = Paths.get(args[0]);
         System.out.println("Reading file " + path);
 
-        AsyncFileReader reader = new AsyncFileReader();
         long startTime = System.currentTimeMillis();
-        CompletableFuture<String> future = reader.readFile(path);
-        System.out.println("Read in progress...");
-        // Block to get the result of this test driver.
-        // This is of course no reactive style!
-        String s = future.get(30, TimeUnit.SECONDS);
+        byte[] bytes = Files.readAllBytes(path);
         long duration = System.currentTimeMillis() - startTime;
-        System.out.println("\n" + s);
-        System.out.println("Read " + s.length() + " bytes in " + duration + " ms.");
+
+        System.out.println(new String(bytes));
+        System.out.println("Read " + bytes.length + " bytes in " + duration + " ms.");
     }
 }
