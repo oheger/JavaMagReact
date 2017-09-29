@@ -34,5 +34,7 @@ public class VertxStartup {
                                 .setPort(port)));
         service.start();
         System.out.println("Vertx shell available on telnet port " + port);
+
+        vertx.deployVerticle(ReadFileVerticle.class.getName());
     }
 }
