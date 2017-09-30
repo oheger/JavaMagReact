@@ -47,7 +47,8 @@ public class VertxStartup {
         BlockingQueue<AsyncResult<CompositeFuture>> queue = new SynchronousQueue<>();
         Future<String> res1 = deployVerticle(vertx, ReadFileVerticle.class);
         Future<String> res2 = deployVerticle(vertx, ProcessFileVerticleCB.class);
-        CompositeFuture.all(res1, res2).setHandler(queue::offer);
+        Future<String> res3 = deployVerticle(vertx, ProcessFileVerticleFuture.class);
+        CompositeFuture.all(res1, res2, res3).setHandler(queue::offer);
         AsyncResult<CompositeFuture> deployResult = queue.poll(10, TimeUnit.SECONDS);
         if (deployResult == null) {
             System.out.println("Timeout on deployment!");
