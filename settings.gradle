@@ -1,0 +1,5 @@
+rootProject.name = 'JavaMagazinReactDemos'
+
+include 'plainJava'
+include 'vertx'
+include 'akka'
