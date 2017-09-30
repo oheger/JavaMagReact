@@ -6,4 +6,6 @@
 .cache
 .history
 .lib/
+.vertx/
 target/
+build/

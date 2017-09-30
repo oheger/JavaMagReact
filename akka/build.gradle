@@ -1,13 +1,4 @@
-group 'de.javamagazin.react'
-version '1.0-SNAPSHOT'
-
 apply plugin: 'scala'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
 
 def versionAkka = '2.5.6'
 
